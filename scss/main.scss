@@ -1,0 +1,286 @@
+// Reset
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+// Styling
+body {
+  font-family: "Libre Franklin", sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+// utilities
+
+.btn {
+  padding: 1rem 1.5rem;
+  border: 2px #0f8acf solid;
+}
+
+// Outer Nav
+.outernav {
+  .container {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      span {
+        color: #0f8acf;
+      }
+    }
+    .right {
+      display: flex;
+      align-items: center;
+      h4 {
+        padding: 0 2rem;
+        i {
+          margin-right: 0.7rem;
+          color: #0f8acf;
+        }
+        &:first-child {
+          border-right: 1px solid #0f8acf;
+        }
+      }
+
+      a {
+        background-color: rgba(15, 138, 207, 0);
+        color: black;
+        margin-left: 2rem;
+        transition: all 350ms;
+
+        &:hover {
+          background-color: rgba(15, 138, 207, 1);
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+// navbar
+.navbar {
+  background-color: #162e44;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .menus {
+      display: flex;
+      li {
+        position: relative;
+        a {
+          padding: 0.83rem 1.5rem;
+          border-top: 2px solid rgba(15, 138, 207, 0);
+          border-bottom: 2px solid rgba(15, 138, 207, 0);
+          transition: all 500ms;
+          &:hover,
+          .current {
+            background: #455c72;
+            border-top: 3px solid rgba(15, 138, 207, 1);
+            border-bottom: 3px solid rgba(15, 138, 207, 1);
+          }
+        }
+
+        .submenu {
+          display: none;
+        }
+
+        &:hover .submenu {
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 30px;
+          width: 300px;
+          background-color: white;
+          animation: submenus 400ms ease forwards;
+
+          li {
+            cursor: pointer;
+            padding: 1rem;
+
+            &:hover {
+              background-color: rgb(33, 92, 126);
+              a {
+                color: white;
+              }
+            }
+            a {
+              padding: 0;
+              color: black;
+              &:hover {
+                background: transparent;
+                border-top: transparent;
+                border-bottom: transparent;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .socials {
+      display: flex;
+      align-items: center;
+
+      p {
+        font-size: 2rem;
+        margin: 0 0.7rem;
+        i {
+          transition: all 300ms;
+          &:hover {
+            color: rgba(15, 138, 207, 1);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes submenus {
+  0% {
+    top: 30px;
+  }
+
+  25% {
+    top: 40px;
+  }
+
+  50% {
+    top: 45px;
+  }
+
+  100% {
+    top: 37px;
+  }
+}
+
+// Showcase Section
+
+#showcase {
+  background: #f7f7f7;
+  height: 86vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  h1 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: #162e44;
+    transform: translateX(-1800px);
+    animation: h1text 4s ease forwards;
+    span {
+      color: #0f8acf;
+    }
+  }
+  h2 {
+    font-size: 2rem;
+    color: #162e44;
+    transform: translateX(1800px);
+    animation: h2text 4s ease forwards;
+    span {
+      color: #0f8acf;
+    }
+  }
+  h3 {
+    color: #0f8acf;
+    transform: translateX(1800px);
+    animation: h3text 4s ease forwards;
+  }
+}
+
+@keyframes h1text {
+  from {
+    transform: translateX(-300px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes h2text {
+  from {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes h3text {
+  from {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+// Responsive
+
+@media (max-width: 1000px) {
+  .outernav {
+    .container {
+      justify-content: center;
+      .right {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    .container {
+      justify-content: center;
+      .socials {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar {
+    .container {
+      .menus {
+        a {
+          font-size: 0.5rem;
+        }
+      }
+    }
+  }
+
+  #showcase {
+    .container {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+    }
+  }
+}
